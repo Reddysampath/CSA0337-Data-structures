@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdbool.h>
+
+bool isValidIdentifier(const char* str) 
+{
+    int i,len = strlen(str);
+    if (len == 0 || (!(str[0] == '_' || (str[0] >= 'a' && str[0] <= 'z') || (str[0] >= 'A' && str[0] <= 'Z'))))
+        return false;
+    for (i = 0; i < len; i++) 
+	{
+        if (str[i] == ' ')
+            return false;
+    }
+    for ( i = 1; i < len; i++)
+	 {
+        if (!(str[i] == '_' || (str[i] >= 'a' && str[i] <= 'z') || (str[i] >= 'A' && str[i] <= 'Z') || (str[i] >= '0' && str[i] <= '9')))
+            return false;
+    }
+    return true;
+}
+
+int main() 
+{
+    char str[100];
+    printf("Enter the string: ");
+    fgets(str, sizeof(str), stdin);
+    if (str[strlen(str) - 1] == '\n')
+        str[strlen(str) - 1] = '\0';
+    if (isValidIdentifier(str))
+        printf("Valid identifier.\n");
+    else
+        printf("Not a valid identifier.\n");
+    return 0;
+}
