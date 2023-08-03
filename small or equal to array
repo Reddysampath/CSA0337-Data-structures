@@ -1,0 +1,24 @@
+#include <stdio.h>
+int main()
+ {
+    int arr[100],i, n, element;
+    int count = 0;
+    printf("Enter the size of the array (max 100): ");
+    scanf("%d", &n);
+    printf("Enter %d elements:\n", n);
+    for ( i = 0; i < n; i++) 
+	{
+        scanf("%d", &arr[i]);
+    }
+    printf("Enter the element to compare with: ");
+    scanf("%d", &element);
+    for ( i = 0; i < n; i++)
+	 {
+        if (arr[i] <= element) 
+		{
+            count++;
+        }
+    }
+    printf("Number of elements smaller than or equal to %d: %d\n", element, count);
+    return 0;
+}
